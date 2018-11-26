@@ -62,3 +62,12 @@
 
 (define (square-list-2 items)
   (my-map (lambda (x) (* x x)) items))
+
+;; Exercise 2.23
+
+(define (for-each func items)
+  (cond
+    ((null? items) #t)
+    (else
+     (func (car items))
+     (for-each func (cdr items)))))
