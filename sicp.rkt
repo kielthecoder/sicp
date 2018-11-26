@@ -43,3 +43,22 @@
             (same-parity-iter (cdr lst) (cons (car lst) acc))
             (same-parity-iter (cdr lst) acc))))
   (my-reverse (same-parity-iter rest (list n))))
+
+(define (my-map func items)
+  (if (null? items)
+      (quote ())
+      (cons (func (car items))
+            (my-map func (cdr items)))))
+
+(define (scale-list items factor)
+  (my-map (lambda (x) (* x factor)) items))
+
+;; Exercise 2.21
+
+(define (square-list-1 items)
+  (if (null? items)
+      (quote ())
+      (cons (* (car items) (car items)) (square-list-1 (cdr items)))))
+
+(define (square-list-2 items)
+  (my-map (lambda (x) (* x x)) items))
