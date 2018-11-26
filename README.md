@@ -1,5 +1,4 @@
-# sicp
-Structure and Interpretation of Computer Programs
+# Structure and Interpretation of Computer Programs
 
 This is a repository I'm using as I work through the exercises in SICP.
 
