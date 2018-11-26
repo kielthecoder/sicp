@@ -31,4 +31,15 @@
 
 (define (no-more? coins)
   (null? coins))
-        
+
+;; Exercise 2.20
+
+(define (same-parity n . rest)
+  (define (same-parity-iter lst acc)
+    (if (null? lst)
+        acc
+        (if (or (and (odd? n) (odd? (car lst)))
+                (and (even? n) (even? (car lst))))
+            (same-parity-iter (cdr lst) (cons (car lst) acc))
+            (same-parity-iter (cdr lst) acc))))
+  (my-reverse (same-parity-iter rest (list n))))
