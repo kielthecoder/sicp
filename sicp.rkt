@@ -71,3 +71,23 @@
     (else
      (func (car items))
      (for-each func (cdr items)))))
+
+(define (count-leaves x)
+  (cond
+    ((null? x) 0)
+    ((not (pair? x)) 1)
+    (else (+ (count-leaves (car x))
+             (count-leaves (cdr x))))))
+
+;; Exercise 2.24
+
+; '(1 (2 (3 4)))
+
+;; Exercise 2.25
+
+; (car (cdr (car (cdr (cdr '(1 3 (5 7) 9))))))
+; (car (car '((7))))
+; (car (cdr (car (cdr (car (cdr (car (cdr (car (cdr (car (cdr '(1 (2 (3 (4 (5 (6 7))))))))))))))))))
+
+;; Exercise 2.26
+
