@@ -9,7 +9,7 @@
     (if (null? lst)
         acc
         (my-reverse-iter (cdr lst) (cons (car lst) acc))))
-  (my-reverse-iter items (quote ())))
+  (my-reverse-iter items nil))
 
 ;; Exercise 2.19
 
@@ -48,7 +48,7 @@
 
 (define (my-map func items)
   (if (null? items)
-      (quote ())
+      nil
       (cons (func (car items))
             (my-map func (cdr items)))))
 
@@ -59,7 +59,7 @@
 
 (define (square-list-1 items)
   (if (null? items)
-      (quote ())
+      nil
       (cons (* (car items) (car items)) (square-list-1 (cdr items)))))
 
 (define (square-list-2 items)
