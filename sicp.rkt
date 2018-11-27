@@ -99,3 +99,10 @@
 
 ;; Exercise 2.27
 
+(define (deep-reverse items)
+  (define (deep-reverse-iter lst acc)
+    (cond
+      ((null? lst) acc)
+      ((pair? (car lst)) (cons (deep-reverse-iter (cdr lst) (deep-reverse-iter (car lst) nil)) acc))
+      (else (deep-reverse-iter (cdr lst) (cons (car lst) acc)))))
+  (deep-reverse-iter items nil))
